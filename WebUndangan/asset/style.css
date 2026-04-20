@@ -10,12 +10,13 @@
 }
 
 body {
-    background-color: #f4f4f4; /* Warna dasar */
+    background-color: #f4f4f4;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 0;
+    width: 100%;
+    /* Jangan pakai display: flex di sini agar alur halaman natural (menumpuk ke bawah) */
+    display: block; 
+    overflow-x: hidden;
 }
 
 .invitation-card {
@@ -179,3 +180,30 @@ body {
     line-height: 0.9; 
 }
 
+        /* Tambahan sedikit agar overlay menutupi layar penuh tapi tetap bisa di-scroll */
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+.overlay {
+    width: 100%;
+    height: 100vh; /* Tinggi satu layar penuh */
+    display: flex;
+    flex-direction: column; /* Isi di dalamnya menumpuk ke bawah */
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+ }
+        
+.invitation-card {
+    width: 100%;
+    height: 100vh; /* Tinggi satu layar penuh */
+    display: flex;
+    flex-direction: column; /* Isi di dalamnya menumpuk ke bawah */
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
