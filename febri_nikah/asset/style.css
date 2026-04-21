@@ -1,209 +1,206 @@
+/* --- Reset & Base Styles --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Serif', 'Palatino', 'Georgia', serif; /* Gunakan font serif agar terlihat elegan */
 }
-@font-face {
-    font-family: "my soul";
-    src: url(/asset/MySoul.ttf);
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    /* Jangan pakai display: flex di sini agar alur halaman natural (menumpuk ke bawah) */
-    display: block; 
+    font-family: 'Serif', 'Georgia', serif;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-.invitation-card {
-    position: relative;
-    width: 100%;       /* Full screen di HP */
-    height: 100vh;     /* Tinggi penuh layar HP */
-    background-image: url('asset/image/woman.jpg');
-    background-size: cover;
-    background-position: center;
+/* --- Layout Container --- */
+.wedding-container {
+    position: relative; 
     overflow: hidden;
-}
-
-/* --- KODE UNTUK DESKTOP (Layar > 768px) --- */
-@media screen and (min-width: 768px) {
-
-    .invitation-card {
-        width: 800px;        
-        height: 800px;      
-        border-radius: 20px;  
-        box-shadow: 0 10px 30px rgba(72, 69, 69, 0.5);
-        margin: 20px;
-    }
-
-    .content {
-        padding: 80px 30px;  
-    }
-}
-
-.content {
-    position: relative;
-    z-index: 2;
     width: 100%;
-    height: 100%; 
-    padding: 70px 30px; 
+    min-height: 100vh;
+}
+
+
+.title-small {
+    font-family: 'IM Fell Double Pica', serif;
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.title-main {
+    font-family: 'IM Fell Double Pica', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1b1818;
+}
+.invitation-header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
     align-items: center;
-    text-align: center;
-    color: rgb(57, 52, 52);
+    padding-top: 320px; 
+    overflow: hidden;
+
 }
 
-.oval-frame {
-    color: #1b1818; 
+.lengkung {
+    position: absolute;
+    width: 600px;
+    height: 600px; 
+    background-color: #556662;
+    border-radius: 50%;
+    top: -300px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;    
+    
+    padding-bottom: 0;         
+    overflow: hidden;        
+}
+.header-text {
+    text-align: center;
+    color: white;
+    margin-bottom: 0; 
+    line-height: 1.1; 
+    padding-bottom: 5px;
+}
+
+.title-small, .title-main {
     margin: 0;
-    line-height: 1;
-    font-weight: bold; 
-    text-transform: none; 
-    width: 280px;           
-    height: 460px;          
-    border: 2px solid rgb(0, 0, 0); 
-    border-radius: 50%;   
+}
+.photo-section {
+    margin-top: 50px; /* Sekarang margin ini akan memberi jarak dari batas atas header */
+    z-index: 1; /* Pastikan foto di atas lengkung jika bertumpuk */
+}
+
+.foto-oval {
+    position: relative;
+    width: 365px;
+    height: 485px;
+    border: 12px solid #e0e0e0;
+    border-radius: 50%; /* Bentuk Oval */
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.foto-oval img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Inisial Overlay --- */
+.inisial-overlay {
+    position: absolute;
+    font-family: 'My Soul', cursive;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.inisial-1 { bottom: 60px; left: 34%; transform: rotate(-8px); }
+.inisial-2 { bottom: 40px; right: 34%; transform: rotate(8px); }
+
+
+/* --- Buttons --- */
+.button-wrapper {
+    margin-top: 2rem;
+}
+
+.btn-custom {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #556662;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-custom:hover {
+    background-color: #3e4b48;
+    transform: translateY(-3px);
+}
+
+/* --- Content Section --- */
+#konten {
+    min-height: 100vh;
+    background-color: #dbd3d3;
+    padding: 80px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(5px);           
-    margin: 20px auto;      
 }
 
-.oval-frame h1 {
-    font-weight: 800;
-    font-size: 6rem;
-    font-family: "my soul";
+.content-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
 }
 
-/* Tipografi */
-.dear { 
-    font-size: 1.8rem; 
-    text-shadow: 1px 1px 4px rgba(41, 39, 39, 0.5); 
-}
-
-.guest-name { 
-    font-size: 1.1rem; 
-    margin-top: 12px;
-    font-family: "my soul";
-}
-
-.initial-logo h1 {
-    font-size: 6.5rem;
-    font-family: 'Cursive', serif;
-    opacity: 0.9;
-}
-
-.parent-text {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.btn-open {
-    padding: 15px 40px;
-    border-radius: 30px;
-    border: 1px solid #1b1818;
-    background: rgba(236, 235, 235, 0.8); 
-    color: rgb(1, 0, 0);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 12px;
-}
-.btn-open:hover {
-    transform: scale(1.1); 
-    background: rgb(188, 178, 178);
+.name-text {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 3.5rem;
     color: #1b1818;
 }
 
-.btn-open:active {
-  
-    transform: scale(0.3); 
+.ampersand {
+    display: block;
+    font-size: 1.5rem;
+    margin: 10px 0;
 }
 
-.layar-undangan::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); 
-    z-index: 1;
-}
-
-
-.kotak-kalender {
-    position: relative;
-    z-index: 2; 
-    background-color: rgba(220, 220, 220, 0.9); 
-    width: 200px; 
-    height: 300px; 
-    border: 10px solid #666; 
-    border-radius: 50px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/* --- Date Grid (Responsive) --- */
+.date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    padding: 20px;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
-
-.teks-tanggal-atas {
-    font-family: 'Vollkorn', serif; 
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 5px; 
+.day-col p, .time-col p {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
-
-.tanggal-bertumpuk {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0px; 
-    font-family: "my soul";
+.date-col {
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
 }
 
-.angka-miring {
-    font-family: 'Playfair Display', serif; 
-    font-style: italic; 
-    font-size: 60px; 
-    color: #333;
-    line-height: 0.9; 
+.day-number {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    margin: 5px 0;
 }
 
-        /* Tambahan sedikit agar overlay menutupi layar penuh tapi tetap bisa di-scroll */
-html {
-    scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+.month, .year {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
 }
-.overlay {
-    width: 100%;
-    height: 100vh; /* Tinggi satu layar penuh */
-    display: flex;
-    flex-direction: column; /* Isi di dalamnya menumpuk ke bawah */
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
- }
-        
-.invitation-card {
-    width: 100%;
-    height: 100vh; /* Tinggi satu layar penuh */
-    display: flex;
-    flex-direction: column; /* Isi di dalamnya menumpuk ke bawah */
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .name-text { font-size: 2.5rem; }
+    .foto-oval { width: 240px; height: 340px; }
+    .day-number { font-size: 2.5rem; }
 }
